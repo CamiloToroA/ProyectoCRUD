@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProyectoCRUD.WEB.Models.Entities.Maquinaria>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Bricksoft</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-secondary">Ingresar Maquina</a>
+</p>
+<i class = "fas-solidd fas-user"></i>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+           <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+          
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdMaquina"><input type="submit" value="Editar" class="btn btn-primary"/></a> |
+                <a asp-action="Details" asp-route-id="@item.IdMaquina"><input type="submit" value="Detalles" class="btn btn-secondary"/></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMaquina"><input type="submit" value="Eliminar" class="btn btn-danger"/></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
